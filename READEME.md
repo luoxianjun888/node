@@ -4,3 +4,5 @@
 3. sequelize orm
 4. multiparty文件上传
 5. xheditor富文本编辑器 带图片上传功能
+
+#### 预览：http://www.uiiiui.com
