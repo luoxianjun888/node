@@ -1,0 +1,67 @@
+{%extends './common/base.html'%}
+
+{%block title%}评论发表成功-{{webtitle}}{%endblock%}
+
+{%block content%}
+
+<div class="fivepage my-bg2" id="fivepage">
+    <div class="container">
+        <div class="footertext">
+            <h2><i class="fa fa-tags"></i> 评论发表成功 </h2>
+        </div>
+        <div class="footerbtn">
+          
+            <div class="footerbtn">
+                <a href="tel:18911383644" class="btn btn-dark btn-lg font-size-25">
+                    TEL：
+                    18911383644（微信同号）
+                </a>
+                <p class="mt-4 text-light">北京期刊杂志内刊设计公司</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container py-4">
+    <div class="row pt-4">
+         <div class="col-md-9 my-cate-info">
+                <h1 class="mb-5 my-5">评论发表成功，正在审核中……</h1>
+                <p> <button class="btn btn-danger" id="goback"> <i class="fa fa-arrow-left"></i> 返回上页</button> </p>
+        </div>
+           <script>
+               let back=document.getElementById('goback')
+               back.onclick=function(){
+                   window.location.href = document.referrer
+               }
+               setTimeout(()=>{window.location.href=document.referrer},3000)
+           </script>
+
+        <div class="col-md-3">
+           {%include './common/right.html'%}
+           {%include './common/right-neikan.html'%}
+           {%include './common/commontlist.html'%}
+        </div>
+    </div>
+</div>
+
+
+
+<div class="threepage" id="threepage">
+    <div class="threepagecontent">
+        <div class="threepagetext">
+            <h2>[ 期刊杂志内刊设计 ]</h2>
+            <p> 北京期刊杂志内刊设公司 <br>高水准打造各种类型期刊杂志内刊版式 </p>
+        </div>
+        <p>
+            <img class="img-w-max-60" src="/img/bg2.svg" alt="">
+        </p>
+        <a href="/index2" class="btn btn-dark btn-lg threepagebtn">高水准杂志设计</a>
+    </div>
+</div>
+
+
+<div class="mt-5"></div>
+
+{%include './common/album.html'%}
+
+{%endblock%}

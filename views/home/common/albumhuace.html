@@ -1,0 +1,27 @@
+
+
+<div class="album py-5 bg-light">
+    <div class="container">
+      <h2 class="mb-5 text-center"><a href="" class="text-reset"><i class="fa fa-folder-open-o"></i>  画册案例 </a></h2>
+      <div class="row grid1">
+
+        {%for item in huaces%}
+        <div class="grid-item">
+          <a class="grid-item-a" href="/detail/{{item.id}}.html"> <img src="/{{item.pic}}" alt="{{item.title}}"> </a>
+          <div class="my-title">
+            <h3 class="my-list-h3 text-center text-truncate"><a href="/detail/{{item.id}}.html" class="text-reset">  {{item.title}} </a> </h3>
+              <p> <small class="font-weight-light"> 
+                 <i class="text-danger fa fa-user-circle-o"></i> <a class="text-reset" href=""> {{item.User.aname}} </a>
+                 <i class="text-danger ml-1 fa fa-eye"></i> {{item.dianji}}
+                  <a class="text-reset" href="/detail/{{item.id}}.html#mjcomment"> <i class="text-danger ml-1 fa fa-commenting"></i> {%if item.Comments.length > 0 %} {{item.Comments.length}} {%else%} 0 {%endif%}  </a>
+                 <a href="/cate/{{item.Cate.aname}}.html" class="text-reset ml-1"> <i class="text-danger fa fa-tags"></i> {{item.Cate.catename}} </a>
+            </small></p>
+          </div>
+        </div>
+       {%endfor%}
+
+      
+      </div>
+      <p class="mt-5 text-center"><a class="btn btn-danger" href="/cate/huace.html"><i class="fa fa-eye"></i> 查看更多 »</a></p>
+    </div>
+  </div>

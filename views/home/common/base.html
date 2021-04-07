@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="北京杂志,期刊,企业内刊,年报,报告,宣传册,画册,报纸,书籍,平面设计,UI设计排版,美景宏图文化传播公司" />
+    <meta name="description"
+        content="美景宏图文化传播，北京期刊，杂志，内刊，年报,报告,画册,报纸,书籍,设计排版公司，长期提供各种类型期刊、杂志、内刊版式，网页，设计，网站APP开发服务，专业从事北京杂志、期刊、企业内刊、年报计、画册、平面、UI设计排版等业务，设计联系：189 1138 3644" />
+    <title>{%block title%} {{webtitle}} {%endblock%} </title>
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/lib/font-awesome-4.7.0/css/font-awesome.min.css"> 
+    <link rel="stylesheet" href="/css/animate.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    {%block css%} {%endblock%}
+</head>
+
+<body>
+   
+    {%include './nav.html'%}
+
+    {%block carousel%} {%endblock%}
+    {%block content%} {%endblock%}
+
+    {%block sider%}{%endblock%}
+
+
+    {%include './footer.html'%}
+
+
+     <a class="webtop" id="topbtn" href="javascript:;">  <img style="width:100%;"  src="/img/top.svg" alt="去顶部"> </a> 
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    {%block js%} {%endblock%}
+     <script>
+    $('.navbar-nav').find('a').each(function () {
+            if (this.href == document.location.href || document.location.href.search(this.href) > 0) {
+                $(this).parent().addClass('active'); // this.className = 'active';
+            }
+        });
+     $("#topbtn").hide();   
+       $(function() {
+      $(window).scroll(function() {
+        if ($(window).scrollTop() > 1000) {
+          $("#topbtn").show(500);
+        } else {
+          $("#topbtn").hide(500);
+        }
+      });
+      //当点击跳转链接后，回到页面顶部位置
+      $("#topbtn").click(function() {
+        $('body,html').animate({
+          scrollTop: 0
+        },
+        500);
+        return false;
+      });
+    });
+  </script>
+
+
+
+
+</body>
+
+</html>

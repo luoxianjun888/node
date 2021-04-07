@@ -1,0 +1,117 @@
+{%extends './common/base.html'%}
+
+{%block title%}{{cates[0].catename}}-{{webtitle}}{%endblock%}
+
+{%block content%}
+
+<div class="fivepage my-bg2" id="fivepage">
+    <div class="container">
+        <div class="footertext">
+            <h2><i class="fa fa-tags"></i> {{cates[0].catename}}</h2>
+        </div>
+        <div class="footerbtn">
+          
+            <div class="footerbtn">
+                <a href="tel:18911383644" class="btn btn-dark btn-lg font-size-25">
+                    TEL：
+                    18911383644（微信同号）
+                </a>
+                <p class="mt-4 text-light">北京期刊杂志内刊设计公司</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="album py-5 bg-light">
+    <div class="container">
+      <!-- <h2 class="mb-5 text-center"><a href="" class="text-reset"><i class="fa fa-folder-open-o"></i>  {{cates[0].catename}} </a></h2> -->
+      <div class="row grid1">
+
+        {%for item in cates[0].Posts%}   
+        <div class="grid-item">
+          <a class="grid-item-a" href="/detail/{{item.id}}.html"> <img src="/{{item.pic}}" alt="{{item.title}}"> </a>
+          <div class="my-title">
+             <h3 class="my-list-h3 text-center text-truncate"><a href="/detail/{{item.id}}.html" class="text-reset">  {{item.title}} </a> </h3>
+              <p> <small class="font-weight-light"> 
+                 <i class="text-danger fa fa-user-circle-o"></i> <a class="text-reset" href=""> {{item.User.aname}} </a>
+                 <i class="text-danger ml-1 fa fa-eye"></i> {{item.dianji}}
+                 <a class="text-reset" href="/detail/{{item.id}}.html#mjcomment"> <i class="text-danger ml-1 fa fa-commenting"></i> {%if item.Comments.length > 0 %} {{item.Comments.length}} {%else%} 0 {%endif%}  </a>
+                 <a href="/cate/{{cates[0].aname}}.html" class="text-reset ml-1"> <i class="text-danger fa fa-tags"></i> {{cates[0].catename}} </a>
+            </small></p>
+          </div>
+        </div>
+        {%endfor%}
+
+     </div>    
+       <!-- 分页 -->
+        <div class="mt-5">
+    <nav aria-label="Page navigation example mt-5">
+        <ul class="pagination justify-content-center">
+            <li {%if page == 1 %} class="page-item disabled" {%else%} class="page-item" {%endif%}>
+                <a class="page-link" href="/cate/{{cates[0].aname}}?page=1" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li  {%if page == 1 %} class="page-item disabled" {%else%} class="page-item" {%endif%}><a class="page-link" href="/cate/{{cates[0].aname}}?page={{page-1}}">上页</a></li>
+            <li class="page-item active"><span class="page-link">{{page}}</span></li>
+            <li  {%if page == pages %} class="page-item disabled" {%else%} class="page-item" {%endif%}><a class="page-link" href="/cate/{{cates[0].aname}}?page={{page+1}}">下页</a></li>
+            <li  {%if page == pages %} class="page-item disabled" {%else%} class="page-item" {%endif%}>
+                <a class="page-link" href="/cate/{{cates[0].aname}}?page={{pages}}" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    </div>
+<!-- 分页结束 -->
+      
+      </div>
+    </div>
+  </div>
+
+
+<div class="container py-4">
+    {%for item in cates[0].Posts%}
+    <div class="row pt-4 my-cate">
+        <div class="col-md-6">
+            <a class="my-cate-img mb-4" href="/detail/{{item.id}}.html"> <img src="/{{item.pic}}" alt="{{item.title}}"> </a>
+        </div>
+         <div class="col-md-6 my-cate-info">
+             <h3 class="mb-4"> <a href="/detail/{{item.id}}.html" class="text-reset">{{item.title}} </a> </h3>
+             <p class="font-weight-light">  <a class="text-reset" href="/detail/{{item.id}}.html">{{item.desc}}</a></p>
+             <p> <small class="font-weight-light"> 
+                 <i class="text-danger fa fa-user-circle-o"></i> <a class="text-reset" href=""> {{item.User.aname}} </a>
+                 <i class="text-danger ml-3 fa fa-eye"></i> {{item.dianji}}
+                <a class="text-reset ml-3" href="/detail/{{item.id}}.html#mjcomment"> <i class="text-danger  fa fa-commenting"></i> {%if item.Comments.length > 0 %} {{item.Comments.length}} {%else%} 0 {%endif%}  </a>
+                 <i class="text-danger ml-3 fa fa-clock-o"></i> {{moment(item.updatedAt).format('YYYY-MM-DD HH:mm:ss')}}
+            </small></p>
+             <p>   <a href="/cate/{{cates[0].aname}}.html" class="btn btn-light btn-sm"> <i class="fa fa-tags"></i> {{cates[0].catename}} </a> 
+                   <a href="/detail/{{item.id}}.html" class="btn btn-danger btn-sm"> <i class="fa fa-arrow-right"></i> 查看详情</a> 
+            </p>
+        </div>
+    </div>
+    <hr>
+     {%endfor%}
+</div>
+
+
+
+<div class="threepage" id="threepage">
+    <div class="threepagecontent">
+        <div class="threepagetext">
+            <h2>[ 期刊杂志内刊设计 ]</h2>
+            <p> 北京期刊杂志内刊设公司 <br>高水准打造各种类型期刊杂志内刊版式 </p>
+        </div>
+        <p>
+            <img class="img-w-max-60" src="/img/bg2.svg" alt="">
+        </p>
+        <a href="/index2" class="btn btn-dark btn-lg threepagebtn">高水准杂志设计</a>
+    </div>
+</div>
+
+
+<div class="mt-5"></div>
+
+{%include './common/album.html'%}
+
+{%endblock%}

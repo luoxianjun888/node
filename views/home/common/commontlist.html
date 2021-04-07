@@ -1,0 +1,15 @@
+
+{%if item.Comments.length%}
+<div class="card mt-4" style="width: 100%;">
+  <div class="card-header" style="padding: .2rem 0;">
+    <h5 class="text-center py-1 my-1"><i class="text-danger fa fa-commenting"></i>  最新评论 </h5>
+  </div>
+  <ul class="list-group list-group-flush">
+    {%for items in item.Comments%}  
+        <li class="list-group-item" style="font-size: 0.9rem; font-weight: 300;"><p>{{items.content}}</p>
+            <p class="mb-1"><small> <i class="text-danger fa fa-user-circle"></i> {{items.uname}}  <i class="text-danger ml-3 fa fa-clock-o"></i> {{moment(items.updatedAt).format('YYYY-MM-DD')}}</small></p>
+        </li>
+     {%endfor%}
+  </ul>
+</div>
+{%endif%}

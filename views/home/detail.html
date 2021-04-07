@@ -1,0 +1,101 @@
+{%extends './common/base.html'%}
+
+{%block title%}{{item.title}}-{{webtitle}}{%endblock%}
+
+{%block content%}
+
+<div class="fivepage my-bg2" id="fivepage">
+    <div class="container">
+        <div class="footertext">
+            <h2><i class="fa fa-tags"></i> {{item.title}}</h2>
+        </div>
+        <div class="footerbtn">
+          
+            <div class="footerbtn">
+                <a href="tel:18911383644" class="btn btn-dark btn-lg font-size-25">
+                    TEL：
+                    18911383644（微信同号）
+                </a>
+                <p class="mt-4 text-light">北京期刊杂志内刊设计公司</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container py-4">
+    <div class="row pt-4">
+         <div class="col-md-9 my-cate-info">
+             <div><a class="my-cate-img my-img-h400 mb-4" href="/detail/{{item.id}}.html"> <img src="/{{item.pic}}" alt="{{item.title}}"> </a></div>
+             <h3 class="mb-4 py-4"> <a href="/detail/{{item.id}}.html" class="text-reset">{{item.title}} </a> </h3>
+             <hr>
+             <p> <small class="font-weight-light"> 
+                 <i class="text-danger fa fa-user-circle-o"></i> <a class="text-reset" href=""> {{item.User.aname}} </a>
+                 <i class="text-danger ml-3 fa fa-eye"></i> {{item.dianji}}
+                 <a href="#mjcomment" class="text-reset">   <i class="text-danger ml-3 fa fa-commenting"></i> {%if item.Comments.length > 0 %} {{item.Comments.length}} {%else%} 0 {%endif%} </a> 
+                 <i class="text-danger ml-3 fa fa-clock-o"></i> {{moment(item.updatedAt).format('YYYY-MM-DD HH:mm:ss')}}
+            </small></p>
+            <hr>
+            
+             <p class="font-weight-light my-5 text-black-50">  <a class="text-reset" href="/detail/{{item.id}}.html"><span>【摘要】</span> {{item.desc}}</a></p>
+            
+             <hr>
+
+             <div class="content mt-5">
+                 <!-- 内容 -->
+                 {{item.content|safe}}
+
+                 <!-- 图片列表 -->
+                 {%if item.piclist.length > 1%}
+                 {%for pic in item.piclist%}
+                 <div class="my-4 text-center" >
+                    <img src=" /{{pic.path}}" alt="{{item.title}}">   
+                 </div>   
+                 {%endfor%}
+                {%endif%}
+             </div>
+
+             <div class="mt-4 py-4">   <a href="/cate/{{item.Cate.aname}}.html" class="btn btn-light btn-sm"> <i class="fa fa-tags"></i> {{item.Cate.catename}} </a> 
+             </div>
+             <hr>
+                {%if prevPage%}
+                <p class="pb-1">上一篇：<a href="/detail/{{prevPage.id}}.html">{{prevPage.title}}</a></p> 
+                {%endif%}
+                {%if nextPage%}
+                <p> 下一篇：<a href="/detail/{{nextPage.id}}.html">{{nextPage.title}}</a></p> 
+                {%endif%}
+             <hr>
+             <!-- 评论 -->
+            <h5 class="mb-4" id="mjcomment">网友评论</h5>
+             {%include './common/comment.html'%}
+        </div>
+           
+
+        <div class="col-md-3">
+           {%include './common/right.html'%}
+           {%include './common/right-neikan.html'%}
+           {%include './common/commontlist.html'%}
+        </div>
+    </div>
+</div>
+
+
+
+<div class="threepage" id="threepage">
+    <div class="threepagecontent">
+        <div class="threepagetext">
+            <h2>[ 期刊杂志内刊设计 ]</h2>
+            <p> 北京期刊杂志内刊设公司 <br>高水准打造各种类型期刊杂志内刊版式 </p>
+        </div>
+        <p>
+            <img class="img-w-max-60" src="/img/bg2.svg" alt="">
+        </p>
+        <a href="/index2" class="btn btn-dark btn-lg threepagebtn">高水准杂志设计</a>
+    </div>
+</div>
+
+
+<div class="mt-5"></div>
+
+{%include './common/album.html'%}
+
+{%endblock%}

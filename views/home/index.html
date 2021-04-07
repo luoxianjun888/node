@@ -1,0 +1,161 @@
+{%extends './common/base.html'%}
+
+
+
+
+{%block carousel%} {%include './common/carousel.html'%} {%endblock%}
+
+{%block content%}
+
+<div class="container my-5">
+    {%include './common/top.html'%}
+</div>
+
+{%include './common/album.html'%}
+
+
+<div class="fivepage d-none d-md-block" id="fivepage">
+    <div class="container">
+        <div class="footertext">
+            <h2>[ 联系方式 ]</h2>
+        </div>
+        <div class="footerbtn">
+            <div class="row">
+             {%for item in hots%}
+                <div class="col-md-4 fivea mb-3">
+                    <a href="/detail/{{item.id}}">
+                        <img src="/{{item.pic}}" alt="{{item.title}}"
+                            title="{{item.title}}">
+                    </a>
+                </div>
+             {%endfor%}
+            </div>
+            <div class="footerbtn">
+                <a href="tel:18911383644" class="btn btn-dark btn-lg font-size-25">
+                    TEL：
+                    18911383644（微信同号）
+                </a>
+                <p class="mt-4">高水准打造各种类型期刊杂志内刊版式</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{%include './common/albumneikan.html'%}
+
+
+<div class="threepage" id="threepage">
+    <div class="threepagecontent">
+        <div class="threepagetext">
+            <h2>[ 期刊杂志内刊设计 ]</h2>
+            <p> 10年北京期刊杂志内刊设计经验 <br>高水准打造各种类型期刊杂志内刊版式 </p>
+        </div>
+        <p>
+            <img class="img-w-max-60" src="/img/bg2.svg" alt="">
+        </p>
+        <a href="/index2" class="btn btn-dark btn-lg threepagebtn">高水准杂志设计</a>
+    </div>
+</div>
+
+
+<div class="mt-5"></div>
+
+{%include './common/albumhuace.html'%}
+
+
+<style>
+    a:hover{
+        text-decoration:none;
+    }
+</style>
+
+
+<hr>
+<div class="container">
+        
+    <div class="my-5 row">
+    <div class="col-md-6">
+       <a class="text-reset" href="/cate/news.html"> <h2 class="bg-secondary p-2 text-light rounded" style="font-size:1.3rem"><li class="fa fa-angle-down"></li>  设计天地  </h2></a>
+      {%for p in sheji%}
+            <div>
+              <a class="text-reset" href="/detail/{{p.id}}"> <h2 class="mt-4 mb-3" style="font-size:1.2rem">{{p.title}}</h2>
+              <div style="font-size:0.6rem;color:#aaa;"> 
+              <div class="row">
+                <div class="col-md-3">
+                <img src="{{p.pic}}" style="max-width:100%" alt="{{p.title}}">  
+                </div>
+                <div class="col-md-9">
+                    <div class="mt-1">
+                     {{p.desc.substr(0,90)}}... <br> {{moment(p.createdAt).format('YYYY-MM-DD HH:mm:ss')}}
+                    </div>
+                </div>
+              </div>
+               
+              
+              </div> </a>
+            </div>
+        <hr>
+       {%endfor%}
+     </div>
+     <div class="col-md-6">  
+      <a class="text-reset" href="/cate/zazhi.html"> <h2 class="bg-secondary p-2 text-light rounded" style="font-size:1.3rem"><li class="fa fa-angle-down"></li>  案例展示  </h2></a>
+          {%for p in anli%}
+            <div>
+              <a class="text-reset" href="/detail/{{p.id}}"> <h2 class="mt-4 mb-3" style="font-size:1.2rem">{{p.title}}</h2>
+              <div style="font-size:0.6rem;color:#aaa;"> 
+              <div class="row">
+                <div class="col-md-3">
+                <img src="{{p.pic}}" style="max-width:100%" alt="{{p.title}}">  
+                </div>
+                <div class="col-md-9">
+                  <div class="mt-1">
+                  {{p.desc.substr(0,90)}}... <br>  {{moment(p.createdAt).format('YYYY-MM-DD HH:mm:ss')}}
+                  </div>
+                </div>
+              </div>
+               
+              
+              </div> </a>
+            </div>
+            <hr>
+          {%endfor%}
+       </div> 
+     </div>  
+ 
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<!-- 我们的客户 -->
+
+    <div class="container">
+        <div class="threepagetext">
+            <h2 class="mb-5 text-center">[ 我们的客户 ]</h2>
+        </div>
+        <div class="row">
+        <p class="d-none d-md-block">
+            <img class="w-100"  src="/img/logolg.png" alt="我们的客户 ">
+        </p>
+         <p class="d-md-none d-sm-block text-center">
+            <img  style="width:96%;"  src="/img/logosm.png" alt="我们的客户 ">
+        </p>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+{%endblock%}

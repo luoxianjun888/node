@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html class="x-admin-sm">
+    {%include './header.html'%}
+    <body>
+        <div class="layui-fluid">
+            <div class="layui-row layui-col-space15">
+                <div class="layui-col-md12">
+                    <div class="layui-card">
+                        <div class="layui-card-body ">
+                            <blockquote class="layui-elem-quote">欢迎管理员：
+                                <span class="x-red">test</span>！当前时间: <span id="x-time">testww</span>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+
+    
+    
+                <div class="layui-col-md12">
+                    <div class="layui-card">
+                        <div class="layui-card-header">开发团队</div>
+                        <div class="layui-card-body ">
+                            <table class="layui-table">
+                                <tbody>
+                                    <tr>
+                                        <th>版权所有</th>
+                                        <td>美视觉
+                                            <a href="http://mjht.net/" target="_blank">访问官网</a></td>
+                                    </tr>
+                                    <tr>
+                                        <th>开发者</th>
+                                        <td>罗贤军(13958089@qq.com)</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <style id="welcome_style"></style>
+                <div class="layui-col-md12">
+                    <blockquote class="layui-elem-quote layui-quote-nm">北京美景宏图文化传播有限公司 https://www.mjht.net</blockquote></div>
+            </div>
+        </div>
+        </div>
+        <script>
+            var day1 = new Date();
+            var time = document.getElementById('x-time')
+            time.innerHTML=day1
+        </script>
+    </body>
+</html>

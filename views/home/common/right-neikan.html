@@ -1,0 +1,16 @@
+<div class="card" style="width: 100%;">
+  <img src="/{{neikans[0].pic}}" class="card-img-top" alt="{{neikans[0].title}}">
+  <div class="card-body">
+    <h5 class="card-title text-center">内刊设计案例</h5>
+    <hr>
+    <p class="card-text"><i class="text-danger fa fa-whatsapp"></i> TEL：18911383644 <br><i class="text-danger fa fa-qq"></i> QQ: 1095196744</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    {%for item in neikans%}  
+        <li class="list-group-item text-truncate"><i class="text-danger fa fa-angle-right"></i> <a class="text-reset" href="/detail/{{item.id}}.html">{{item.title}}</a></li>
+    {%endfor%}
+  </ul>
+  <div class="card-body text-center">
+    <a href="/" class="btn btn-danger btn-sm"><i class="fa fa-eye"></i>  查看更多 ></a></a>
+  </div>
+</div>
